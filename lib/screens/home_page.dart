@@ -12,7 +12,17 @@ class HomePage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 15),
       //alignment: Alignment.topCenter,
-      child: const Column(children: [SearchBarField(onValue: null), Row()]),
+      child: Column(children: [
+        const SearchBarField(onValue: null),
+        ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) => {},
+        ),
+        ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, index) => {},
+        ),
+      ]),
     );
   }
 }
