@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/theme/app_theme.dart';
-import 'package:food_app/widgets/appbar.dart';
+import 'package:food_app/screens/home_page.dart';
 import 'package:food_app/widgets/navbar_bottom.dart';
 
 void main() {
@@ -29,12 +29,7 @@ class MainApp extends StatelessWidget {
                 )),
           ],
         ),
-        body: const Center(
-          child: Text(
-            'App!',
-            style: TextStyle(),
-          ),
-        ),
+        body: const HomePage(),
         bottomNavigationBar: const NavbarBottom(),
       ),
     );
