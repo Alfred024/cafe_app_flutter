@@ -1,10 +1,10 @@
-class FoodCart {
+class FoodCard {
   final String title;
   final String imgUrl;
   final int price;
   final String description;
 
-  FoodCart({
+  FoodCard({
     required this.title,
     required this.imgUrl,
     required this.price,

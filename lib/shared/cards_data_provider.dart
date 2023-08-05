@@ -1,6 +1,6 @@
 //Estos dats son los que podemos consumir de Firebase
 
-List<Map<String, dynamic>> foodData = [
+List<Map<String, dynamic>> apiFoodData = [
   {
     'title': 'Hamburguesa con papas',
     'imgUrl': 'assets/images/burguer.jpg',

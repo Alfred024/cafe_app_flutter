@@ -1,20 +1,20 @@
 import 'package:food_app/domain/food_card.dart';
 
-class FoodCartModel {
+class FoodCardModel {
   final String title;
   final String imgUrl;
   final int price;
   final String description;
 
-  FoodCartModel(
+  FoodCardModel(
       {required this.title,
       required this.imgUrl,
       required this.price,
       required this.description});
 
   //factory methods: return constructor that doesn’t always create a new instance of its class (might return an instance from a cache).
-  factory FoodCartModel.fromJson(Map<String, dynamic> json) {
-    return FoodCartModel(
+  factory FoodCardModel.fromJson(Map<String, dynamic> json) {
+    return FoodCardModel(
         title: json['title'],
         imgUrl: json['imgUrl'],
         price: json['price'],
@@ -30,8 +30,8 @@ class FoodCartModel {
     };
   }
 
-  FoodCart toFoodCardEntity() {
-    return FoodCart(
+  FoodCard toFoodCardEntity() {
+    return FoodCard(
         title: title, imgUrl: imgUrl, price: price, description: description);
   }
 }
