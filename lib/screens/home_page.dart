@@ -18,64 +18,22 @@ class HomePage extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 15),
-      //alignment: Alignment.topCenter,
-      //alignment: Alignment.bottomCenter,
-      child: Column(children: [
+      child: Column(mainAxisSize: MainAxisSize.max, children: [
         const SearchBarField(onValue: null),
-        FoodCardView1(
-          foodCard: foodCardsList[0],
-        ),
-        FoodCardView2(
-          foodCard: foodCardsList[1],
-        ),
-        // ListView.builder(
+        FoodCardView2(foodCard: foodCardsList[3]),
+        // ListView(
         //   physics: const BouncingScrollPhysics(),
         //   scrollDirection: Axis.horizontal,
-        //   itemBuilder: (context, index) => (FoodCardView1(
-        //     foodCard: foodCardsList[index],
-        //   )),
-        // ),
-        // ListView.builder(
-        //   scrollDirection: Axis.vertical,
-        //   itemBuilder: (context, index) =>
-        //       (const Text('Yo seré otra cosa jsjs')),
+        //   children: [
+        //     FoodCardView2(foodCard: foodCardsList[0]),
+        //     FoodCardView2(foodCard: foodCardsList[1]),
+        //     FoodCardView2(foodCard: foodCardsList[2]),
+        //     FoodCardView2(foodCard: foodCardsList[3]),
+        //     FoodCardView2(foodCard: foodCardsList[4]),
+        //   ],
         // ),
       ]),
     );
-  }
-}
-
-// class FoodCardView1 extends StatelessWidget {
-  final FoodCard foodCard;
-  const FoodCardView1({super.key, required this.foodCard});
-
-  @override
-  Widget build(BuildContext context) {
-    final cardDecoration = BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        image: DecorationImage(
-            image: AssetImage(foodCard.imgUrl), fit: BoxFit.cover));
-
-    return Container(
-        padding: const EdgeInsets.all(10),
-        margin: const EdgeInsetsDirectional.all(10),
-        width: 160,
-        height: 160,
-        decoration: cardDecoration,
-        child: Positioned(
-          child: Column(
-            children: [
-              Text(
-                foodCard.title,
-                style: const TextStyle(fontSize: 18, color: Colors.white),
-              ),
-              Text(
-                '${foodCard.price}',
-                style: const TextStyle(fontSize: 16, color: Colors.white),
-              ),
-            ],
-          ),
-        ));
   }
 }
 
@@ -93,28 +51,45 @@ class FoodCardView2 extends StatelessWidget {
     return Container(
       width: 160,
       height: 160,
-      padding: const EdgeInsets.all(10),
+      //padding: const EdgeInsets.all(10),
       margin: const EdgeInsetsDirectional.all(10),
       decoration: cardDecoration,
       child: Stack(children: [
+        const CardBackgroundGradient(),
         Positioned(
             bottom: 20,
-            left: 0,
+            left: 10,
             child: Text(
               foodCard.title,
               style: const TextStyle(fontSize: 18, color: Colors.white),
             )),
-        // const SizedBox(
-        //   height: 20,
-        // ),
         Positioned(
             bottom: 0,
-            left: 0,
+            left: 10,
             child: Text(
-              '${foodCard.price}',
+              '\$${foodCard.price}',
               style: const TextStyle(fontSize: 16, color: Colors.white),
             )),
       ]),
     );
+  }
+}
+
+class CardBackgroundGradient extends StatelessWidget {
+  const CardBackgroundGradient({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Positioned.fill(
+        child: DecoratedBox(
+      decoration: BoxDecoration(
+          //borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          gradient: LinearGradient(
+              colors: [Colors.transparent, Colors.black87],
+              stops: [0.5, 1.0],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter)),
+    ));
   }
 }
