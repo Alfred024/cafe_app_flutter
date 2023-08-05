@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/config/theme/app_theme.dart';
 import 'package:food_app/widgets/appbar.dart';
 import 'package:food_app/widgets/navbar_bottom.dart';
 
@@ -13,6 +14,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: AppTheme().theme(),
+      title: 'Food App',
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xFFFF7F50),
@@ -28,7 +31,7 @@ class MainApp extends StatelessWidget {
         ),
         body: const Center(
           child: Text(
-            'Hello User!',
+            'App!',
             style: TextStyle(),
           ),
         ),
