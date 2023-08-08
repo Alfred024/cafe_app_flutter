@@ -13,14 +13,14 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final foodDataProvider = context.watch<FoodDataProvider>();
-    final foodCardsList = foodDataProvider.foodCardsList;
+    //final foodDataProvider = context.watch<FoodDataProvider>();
+    //final foodCardsList = foodDataProvider.foodCardsList;
 
     return Container(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 15),
-      child: Column(mainAxisSize: MainAxisSize.max, children: [
-        const SearchBarField(onValue: null),
-        FoodCardView2(foodCard: foodCardsList[3]),
+      child: const Column(mainAxisSize: MainAxisSize.max, children: [
+        SearchBarField(onValue: null),
+        //FoodCardView2(foodCard: foodCardsList[3]),
         // ListView(
         //   physics: const BouncingScrollPhysics(),
         //   scrollDirection: Axis.horizontal,
