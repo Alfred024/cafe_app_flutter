@@ -25,16 +25,6 @@ class SearchBarField extends StatelessWidget {
           iconColor: MaterialStatePropertyAll(Colors.white),
         ),
       ),
-      // suffixIcon: IconButton(
-      //     onPressed: () {
-      //       final fieldValue = textController.value.text;
-      //       textController.clear();
-      //       //onValue(fieldValue);
-      //     },
-      //     icon: Container(
-      //       color: const Color.fromARGB(255, 245, 176, 150),
-      //       child: const Icon(Icons.search, color: Colors.black),
-      //     ))
     );
 
     return DecoratedBox(
