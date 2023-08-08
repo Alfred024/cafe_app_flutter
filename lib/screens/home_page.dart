@@ -16,21 +16,91 @@ class HomePage extends StatelessWidget {
     final foodDataProvider = context.watch<FoodDataProvider>();
     final foodCardsList = foodDataProvider.foodCardsList;
     return SingleChildScrollView(
+        padding: const EdgeInsets.only(left: 10, right: 10),
         child: Column(
-      children: [
-        const SizedBox(height: 10),
-        const SearchBarField(onValue: null),
-        SizedBox(
-            width: double.infinity,
-            height: 160,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: foodCardsList.length,
-              itemBuilder: (context, index) =>
-                  FoodCardView2(foodCard: foodCardsList[index]),
-            )),
-      ],
-    ));
+          children: [
+            const SizedBox(height: 10),
+            const SearchBarField(onValue: null),
+            const SizedBox(height: 20),
+            const CategoriesList(),
+            const SizedBox(height: 30),
+            const Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  'POPULAR FOOD',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                )),
+            SizedBox(
+                width: double.infinity,
+                height: 160,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: foodCardsList.length,
+                  itemBuilder: (context, index) =>
+                      FoodCardView2(foodCard: foodCardsList[index]),
+                )),
+            const SizedBox(height: 40),
+            const Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  'SPECIAL OFFERS',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                )),
+            SizedBox(
+                width: double.infinity,
+                height: 160,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: foodCardsList.length,
+                  itemBuilder: (context, index) =>
+                      FoodCardView2(foodCard: foodCardsList[index]),
+                )),
+          ],
+        ));
+  }
+}
+
+class CategoriesList extends StatelessWidget {
+  const CategoriesList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final buttonCategoryStyle = ButtonStyle(
+      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+        (Set<MaterialState> states) {
+          return const Color(0xFFFF7F50);
+        },
+      ),
+    );
+
+    return SizedBox(
+        width: double.infinity,
+        height: 40,
+        child: Wrap(
+          //scrollDirection: Axis.horizontal,
+          alignment: WrapAlignment.spaceAround,
+          children: [
+            FilledButton.icon(
+                style: buttonCategoryStyle,
+                onPressed: () {},
+                icon: const Icon(Icons.food_bank),
+                label: const Text('Comida')),
+            FilledButton.icon(
+                style: buttonCategoryStyle,
+                onPressed: () {},
+                icon: const Icon(Icons.local_drink),
+                label: const Text('Bebida')),
+            FilledButton.icon(
+                style: buttonCategoryStyle,
+                onPressed: () {},
+                icon: const Icon(Icons.food_bank_sharp),
+                label: const Text('Snacks')),
+          ],
+        ));
   }
 }
 
