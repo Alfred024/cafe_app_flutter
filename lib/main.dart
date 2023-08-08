@@ -38,7 +38,7 @@ class MainApp extends StatelessWidget {
                   create: (context) => FoodDataProvider()..loadFoodCards())
             ],
             child: const HomePage()),
-        bottomNavigationBar: const NavbarBottom(),
+        //bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }
