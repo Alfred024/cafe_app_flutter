@@ -8,18 +8,17 @@ class ShoppingCart extends StatelessWidget {
     return const Center(
       child: Column(children: [
         SizedBox(
-          height: 100,
+          height: 20,
         ),
         _CartItem2(),
         SizedBox(
-          height: 100,
+          height: 20,
         ),
-        _CartItem2(),
+        OrderInfo(),
       ]),
     );
   }
 
-  //Crear un widget con la información del opedido (Total y comisión)
   //Crear botón para ordenar la comida
   //Agregar notificación para cunado se haya hecho la ´roden
 }
@@ -50,7 +49,7 @@ class _CartItem2 extends StatelessWidget {
               child: const Wrap(children: [
                 Text(
                   'Hamburguesa con papas',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
                 ),
               ]),
             ),
@@ -76,6 +75,102 @@ class _CartItem2 extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class OrderInfo extends StatelessWidget {
+  const OrderInfo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0.0,
+      child: Padding(
+          padding: EdgeInsets.all(10),
+          child: SizedBox(
+            width: double.infinity,
+            height: 100,
+            child: Container(
+              decoration: const BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: const Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Orden',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Comisión',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                      'Total',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Text(
+                      '\$90',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      '\$1',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Text(
+                      '\$91',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+
+          // Row(
+          //   children: [
+          //     //Align(),
+          //     SizedBox(
+          //       //width: double.maxFinite,
+          //       child: Align(
+          //           alignment: Alignment.topRight,
+          //           child: IconButton(
+          //               onPressed: () {},
+          //               icon: const Icon(
+          //                 Icons.more_vert_outlined,
+          //                 color: Colors.deepPurpleAccent,
+          //               ))),
+          //     ),
+          //     SizedBox(
+          //       width: MediaQuery.of(context).size.width * .5,
+          //       height: 100,
+          //       child: Container(
+          //           alignment: Alignment.centerRight,
+          //           decoration: const BoxDecoration(color: Colors.orange),
+          //           child: const Text('label')),
+          //     ),
+          //   ],
+          // ),
+          ),
     );
   }
 }
