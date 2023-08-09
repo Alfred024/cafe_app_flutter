@@ -6,16 +6,7 @@ class ShoppingCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Column(children: [
-        SizedBox(
-          height: 20,
-        ),
-        _CartItem2(),
-        SizedBox(
-          height: 20,
-        ),
-        OrderInfo(),
-      ]),
+      child: Stack(children: [OrderButton()]),
     );
   }
 
@@ -87,7 +78,7 @@ class OrderInfo extends StatelessWidget {
     return Card(
       elevation: 0.0,
       child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: SizedBox(
             width: double.infinity,
             height: 100,
@@ -171,6 +162,29 @@ class OrderInfo extends StatelessWidget {
           //   ],
           // ),
           ),
+    );
+  }
+}
+
+class OrderButton extends StatelessWidget {
+  const OrderButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(left: 10, right: 20),
+      width: double.infinity,
+      child: FilledButton(
+          style: const ButtonStyle(
+            padding: MaterialStatePropertyAll(EdgeInsets.all(10)),
+            backgroundColor: MaterialStatePropertyAll(Color(0xFFFF7F50)),
+          ),
+          onPressed: () {},
+          //icon: const Icon(Icons.),
+          child: const Text(
+            'Ordenar',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          )),
     );
   }
 }
