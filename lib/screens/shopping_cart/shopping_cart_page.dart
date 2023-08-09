@@ -14,8 +14,8 @@ class ShoppingCart extends StatelessWidget {
   //Agregar notificación para cunado se haya hecho la ´roden
 }
 
-class _CartItem2 extends StatelessWidget {
-  const _CartItem2({super.key});
+class CartItem2 extends StatelessWidget {
+  const CartItem2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -171,6 +171,21 @@ class OrderButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void showOrderedNotification(BuildContext context) {
+      ScaffoldMessenger.of(context).clearSnackBars();
+      final customSnackBar = SnackBar(
+        backgroundColor: const Color.fromARGB(255, 249, 144, 106),
+        content: const Text(
+          'Orden realzada con éxito!!',
+          style: TextStyle(color: Colors.white),
+        ),
+        duration: const Duration(seconds: 2),
+        action: SnackBarAction(
+            textColor: Colors.white, label: 'QUITAR', onPressed: () {}),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(customSnackBar);
+    }
+
     return Container(
       padding: const EdgeInsets.only(left: 10, right: 20),
       width: double.infinity,
@@ -179,7 +194,7 @@ class OrderButton extends StatelessWidget {
             padding: MaterialStatePropertyAll(EdgeInsets.all(10)),
             backgroundColor: MaterialStatePropertyAll(Color(0xFFFF7F50)),
           ),
-          onPressed: () {},
+          onPressed: () => showOrderedNotification(context),
           //icon: const Icon(Icons.),
           child: const Text(
             'Ordenar',
