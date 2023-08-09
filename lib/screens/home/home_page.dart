@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/domain/food_card.dart';
 import 'package:food_app/provider/food_data_provider.dart';
-import 'package:food_app/widgets/search_bar.dart';
+import 'package:food_app/screens/home/search_bar.dart';
 import 'package:provider/provider.dart';
 
 //PageView.builder: Creates a scrollable list that works page by page using widgets that are created on demand.

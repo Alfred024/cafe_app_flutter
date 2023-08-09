@@ -14,7 +14,7 @@ class SearchBarField extends StatelessWidget {
       fillColor: Colors.transparent,
       border: InputBorder.none,
       hintText: '¿Qué vas a ordenar hoy?',
-      hintStyle: const TextStyle(color: Colors.grey),
+      hintStyle: const TextStyle(color: Color.fromARGB(255, 39, 35, 35)),
       suffixIcon: IconButton(
         //padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
         onPressed: () {},

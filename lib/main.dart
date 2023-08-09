@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/theme/app_theme.dart';
 import 'package:food_app/provider/food_data_provider.dart';
-import 'package:food_app/screens/home_page.dart';
+import 'package:food_app/screens/home/home_page.dart';
 import 'package:food_app/widgets/navbar_bottom.dart';
 import 'package:provider/provider.dart';
+//import 'package:food_app/widgets/form_demo.dart';
 
 void main() {
   runApp(const MainApp());
@@ -38,7 +39,7 @@ class MainApp extends StatelessWidget {
                   create: (context) => FoodDataProvider()..loadFoodCards())
             ],
             child: const HomePage()),
-        //bottomNavigationBar: const NavbarBottom(),
+        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }
