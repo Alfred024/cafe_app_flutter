@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/config/theme/app_theme.dart';
 import 'package:food_app/provider/food_data_provider.dart';
-import 'package:food_app/screens/home/home_page.dart';
+import 'package:food_app/screens/pages_exports.dart';
 import 'package:food_app/widgets/navbar_bottom.dart';
 import 'package:provider/provider.dart';
 //import 'package:food_app/widgets/form_demo.dart';
@@ -38,7 +38,7 @@ class MainApp extends StatelessWidget {
               ChangeNotifierProvider(
                   create: (context) => FoodDataProvider()..loadFoodCards())
             ],
-            child: const HomePage()),
+            child: const ShoppingCart()),
         bottomNavigationBar: const NavbarBottom(),
       ),
     );
