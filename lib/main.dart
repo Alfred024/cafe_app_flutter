@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/config/theme/app_theme.dart';
 import 'package:food_app/provider/food_data_provider.dart';
 import 'package:food_app/screens/pages_exports.dart';
-import 'package:food_app/widgets/navbar_bottom.dart';
+//import 'package:food_app/widgets/navbar_bottom.dart';
 import 'package:provider/provider.dart';
 //import 'package:food_app/widgets/form_demo.dart';
 
@@ -10,8 +10,24 @@ void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  int indexScreen = 0;
+  final List<Widget> userScreens = <Widget>[
+    const HomePage(),
+    const ShoppingCart(),
+    const ProfilePage(),
+  ];
+
+  final navbarStyle = const BoxDecoration(
+      color: Color(0xFFFF7F50),
+      borderRadius: BorderRadius.all(Radius.circular(20)));
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +54,45 @@ class MainApp extends StatelessWidget {
               ChangeNotifierProvider(
                   create: (context) => FoodDataProvider()..loadFoodCards())
             ],
-            child: const ShoppingCart()),
-        bottomNavigationBar: const NavbarBottom(),
+            child: userScreens.elementAt(indexScreen)),
+        bottomNavigationBar: Container(
+            margin: const EdgeInsets.all(10),
+            decoration: navbarStyle,
+            child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: BottomNavigationBar(
+                  onTap: (index) => setState(() {
+                    indexScreen = index;
+                  }),
+                  currentIndex: indexScreen,
+                  unselectedItemColor: Colors.white,
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  items: const <BottomNavigationBarItem>[
+                    BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.home,
+                        color: Colors.white,
+                      ),
+                      label: 'Home',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.shopping_cart,
+                        color: Colors.white,
+                      ),
+                      label: 'Cart',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.account_box,
+                        color: Colors.white,
+                      ),
+                      label: 'Profile',
+                    ),
+                  ],
+                ))),
       ),
     );
   }
