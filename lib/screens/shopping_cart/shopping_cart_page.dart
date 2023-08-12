@@ -6,7 +6,24 @@ class ShoppingCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Stack(children: [OrderButton()]),
+      child: Column(children: [
+        SizedBox(
+          height: 10,
+        ),
+        CartItem2(),
+        SizedBox(
+          height: 10,
+        ),
+        CartItem2(),
+        SizedBox(
+          height: 180,
+        ),
+        OrderInfo(),
+        SizedBox(
+          height: 10,
+        ),
+        OrderButton(),
+      ]),
     );
   }
 
