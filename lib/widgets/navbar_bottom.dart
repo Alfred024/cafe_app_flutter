@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_app/provider/screen_render_provider.dart';
 
-class NavbarBottom extends StatelessWidget {
+class NavbarBottom extends ConsumerWidget {
   const NavbarBottom({super.key});
 
   final navbarStyle = const BoxDecoration(
@@ -8,7 +10,10 @@ class NavbarBottom extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)));
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final int screenIndex =
+        ref.watch(screenNotifierPorvider).screenSelectedIndex;
+
     return Container(
         margin: const EdgeInsets.all(10),
         decoration: navbarStyle,
@@ -41,6 +46,10 @@ class NavbarBottom extends StatelessWidget {
                   label: 'Profile',
                 ),
               ],
+              currentIndex: screenIndex,
+              onTap: (newIndex) => (ref
+                  .read(screenNotifierPorvider.notifier)
+                  .changeScreen(newIndex)),
             )));
   }
 }
