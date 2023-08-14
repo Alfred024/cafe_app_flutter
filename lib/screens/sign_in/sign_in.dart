@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/config/theme/app_theme.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -11,59 +10,63 @@ class SignIn extends StatelessWidget {
     //     focusedBorder: const OutlineInputBorder(
     //         borderSide: BorderSide(color: Colors.red)));
 
-    return const Center(
+    return Center(
       child: Padding(
         padding: EdgeInsets.only(right: 40, left: 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Registro',
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFFFF7F50)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                   hintText: 'Correo institucional',
                   prefixIcon: Icon(Icons.email_rounded)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                   hintText: 'Nombre', prefixIcon: Icon(Icons.person)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            TextField(
+            const TextField(
               obscureText: true,
               decoration: InputDecoration(
                   hintText: 'Contraseña',
                   prefixIcon: Icon(Icons.remove_red_eye_outlined)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            TextField(
+            const TextField(
               obscureText: true,
               decoration: InputDecoration(
                   hintText: 'Confirmar contraseña',
                   prefixIcon: Icon(Icons.remove_red_eye_outlined)),
             ),
-            SizedBox(
-              height: 10,
+            const SizedBox(
+              height: 40,
             ),
-            // FilledButton.icon(
-            //     onPressed: () {},
-            //     icon: const Icon(Icons.app_registration),
-            //     label: const Text('Guardar datos')),
+            Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50)),
+                  onPressed: () {},
+                  child: const Text('Guardar datos'),
+                )),
           ],
         ),
       ),
