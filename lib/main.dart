@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_app/config/theme/app_theme.dart';
 import 'package:food_app/provider/screen_render_provider.dart';
 import 'package:food_app/screens/pages_exports.dart';
+import 'package:food_app/screens/sign_in/sign_in.dart';
 import 'package:food_app/widgets/navbar_bottom.dart';
 
 void main() {
@@ -38,8 +39,8 @@ class MainApp extends ConsumerWidget {
                 )),
           ],
         ),
-        body: userScreen.getScreen(),
-        //body: Screen(screenSelectedIndex: userScreen.screenSelectedIndex).getScreen(),
+        //body: userScreen.getScreen(),
+        body: const SignIn(),
         bottomNavigationBar: const NavbarBottom(),
       ),
     );
